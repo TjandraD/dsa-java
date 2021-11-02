@@ -9,12 +9,21 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
-        String[] nemo = {"nemo"};
-        String[] everyone = {"dory", "bruce", "marlin", "nemo", "gill", "bloat", "nigel", "squirt", "darla",
-                "hank"};
-        String[] large = new String[50000000];
+    static void logFirstTwoBoxes(int[] boxes) {
+        System.out.println(boxes[0]); // O(1)
+        System.out.println(boxes[1]); // O(1)
+    }
 
-        findNemo(large); // O(n) --> Linear Time
+    public static void main(String[] args) {
+//        String[] nemo = {"nemo"};
+//        String[] everyone = {"dory", "bruce", "marlin", "nemo", "gill", "bloat", "nigel", "squirt", "darla",
+//                "hank"};
+//        String[] large = new String[50000000];
+//
+//        findNemo(large); // O(n) --> Linear Time
+
+        int[] boxes = {0, 1, 2, 3, 4, 5};
+
+        logFirstTwoBoxes(boxes); // O(2)
     }
 }
