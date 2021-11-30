@@ -1,4 +1,4 @@
-package com.tdarmo.data_structures_algorithms.arrays;
+package com.tdarmo.data_structures_algorithms.data_structures.arrays.my_array;
 
 public class Main {
     public static void main(String[] args) {
