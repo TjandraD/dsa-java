@@ -1,9 +1,10 @@
 package com.tdarmo.data_structures_algorithms.data_structures.hash_tables;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HashTable {
-    private String[][][] data;
+    private final String[][][] data;
 
     public HashTable(int size) {
         data = new String[size][][];
@@ -43,5 +44,16 @@ public class HashTable {
         }
 
         return "";
+    }
+
+    public List<String> keys() {
+        List<String> keysArray = new ArrayList<>();
+        for (String[][] keyValue : data) {
+            if (keyValue != null) {
+                keysArray.add(keyValue[0][0]);
+            }
+        }
+
+        return keysArray;
     }
 }
