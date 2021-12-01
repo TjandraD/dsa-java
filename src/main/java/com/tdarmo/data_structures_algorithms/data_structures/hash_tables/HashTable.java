@@ -1,10 +1,12 @@
 package com.tdarmo.data_structures_algorithms.data_structures.hash_tables;
 
+import java.util.Arrays;
+
 public class HashTable {
-    private int[][][] data;
+    private String[][][] data;
 
     public HashTable(int size) {
-        data = new int[size][][];
+        data = new String[size][][];
     }
 
     private int hash(String key) {
@@ -18,26 +20,28 @@ public class HashTable {
 
     public void set(String key, int value) {
         int address = hash(key);
+        int currentSize = 0;
         if (data[address] == null) {
-            data[address] = new int[1][];
+            data[address] = new String[1][];
         } else {
-            int currentSize = data[address].length;
-            int[][] newItem = new int[currentSize + 1][];
-            System.arraycopy(data[address], 0, newItem, 0, currentSize);
-            newItem[currentSize] = new int[]{address, value};
-            data[address] = newItem;
+            currentSize = data[address].length;
         }
+
+        String[][] newItem = new String[currentSize + 1][];
+        System.arraycopy(data[address], 0, newItem, 0, currentSize);
+        newItem[currentSize] = new String[]{key, String.valueOf(value)};
+        data[address] = newItem;
     }
 
-    public int get(String key) {
+    public String get(String key) {
         int address = hash(key);
-        int[][] currentBucket = data[address];
+        String[][] currentBucket = data[address];
         if (currentBucket != null) {
-            for (int[] bucketItem : currentBucket) {
-                if (bucketItem[0] == address) return bucketItem[1];
+            for (String[] bucketItem : currentBucket) {
+                if (bucketItem[0].equals(key)) return bucketItem[1];
             }
         }
 
-        return 0;
+        return "";
     }
 }
