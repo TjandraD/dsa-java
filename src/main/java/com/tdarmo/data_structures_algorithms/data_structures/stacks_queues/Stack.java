@@ -1,43 +1,30 @@
 package com.tdarmo.data_structures_algorithms.data_structures.stacks_queues;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Stack {
-    private Node top;
-    private Node bottom;
-    private int length;
+    final private List<String> data = new ArrayList<>();
 
     Stack(String value) {
-        this.top = new Node(value);
-        this.bottom = this.top;
-        this.length = 1;
+        this.data.add(value);
     }
 
     public String peek() {
-        if (this.top == null) return "No node in stack";
-        return this.top.getValue();
+        if (this.data.size() == 0) return "No data in stack";
+        return this.data.get(this.data.size() - 1);
     }
 
     public void push(String value) {
-        Node node = new Node(value);
-        node.setNext(this.top);
-        this.top = node;
-
-        if (this.length == 0) this.bottom = this.top;
-        this.length++;
+        data.add(value);
     }
 
     public void pop() {
-        if (this.top == null) {
-            return;
-        } else if (this.top == this.bottom) {
-            this.bottom = null;
-        }
-        
-        Node toDelete = this.top;
-        this.top = toDelete.getNext();
-        this.length--;
+        if (this.data.size() == 0) return;
+        this.data.remove(this.data.size() - 1);
     }
 
     public boolean isEmpty() {
-        return this.length == 0;
+        return this.data.size() == 0;
     }
 }

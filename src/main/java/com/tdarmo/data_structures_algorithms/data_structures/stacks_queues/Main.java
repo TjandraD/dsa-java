@@ -7,5 +7,6 @@ public class Main {
         myStack.push("Discord");
         myStack.pop();
         System.out.println(myStack.peek());
+        System.out.println(myStack.isEmpty());
     }
 }
