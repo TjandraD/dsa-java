@@ -1,4 +1,4 @@
-package com.tdarmo.data_structures_algorithms.data_structures.stacks_queues;
+package com.tdarmo.data_structures_algorithms.data_structures.stacks_queues.stack;
 
 public class Node {
     private String value;

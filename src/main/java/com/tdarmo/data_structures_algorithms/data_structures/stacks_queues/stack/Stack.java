@@ -1,4 +1,4 @@
-package com.tdarmo.data_structures_algorithms.data_structures.stacks_queues;
+package com.tdarmo.data_structures_algorithms.data_structures.stacks_queues.stack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 public class Stack {
     final private List<String> data = new ArrayList<>();
 
-    Stack(String value) {
+    public Stack(String value) {
         this.data.add(value);
     }
 
