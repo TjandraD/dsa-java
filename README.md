@@ -21,16 +21,19 @@ This project will be written in Java, and I will implement every code from the t
 | Topics | Location | Docs |
 | --- | --- | --- |
 | Arrays | [Code](https://github.com/TjandraD/dsa-java/tree/main/src/main/java/com/tdarmo/data_structures_algorithms/data_structures/arrays) | - |
+| Linked Lists | [Code](https://github.com/TjandraD/dsa-java/tree/main/src/main/java/com/tdarmo/data_structures_algorithms/data_structures/linked_lists) | - |
 
 ## How to Run The Code
 
 - Open your terminal in the project directory
 - Execute command
+
 ```bash
 javac {{path to your desired file}}
 ```
 
 For example
+
 ```bash
 javac src/main/java/com/tdarmo/data_structures_algorithms/big_o/Main.java
 ```
