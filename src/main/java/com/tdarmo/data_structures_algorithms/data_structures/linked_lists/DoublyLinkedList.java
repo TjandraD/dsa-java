@@ -3,12 +3,12 @@ package com.tdarmo.data_structures_algorithms.data_structures.linked_lists;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LinkedList {
+public class DoublyLinkedList {
     private Node head;
     private Node tail;
     private int length;
 
-    LinkedList(int value) {
+    DoublyLinkedList(int value) {
         this.head = new Node(value);
         this.tail = this.head;
         this.length = 1;
@@ -21,6 +21,7 @@ public class LinkedList {
 
     public void append(int value) {
         Node newNode = new Node(value);
+        newNode.setPrevious(tail);
         tail.setNext(newNode);
         tail = newNode;
         length++;
@@ -28,6 +29,7 @@ public class LinkedList {
 
     public void prepend(int value) {
         Node newNode = new Node(value);
+        head.setPrevious(newNode);
         newNode.setNext(head);
         head = newNode;
         length++;
@@ -45,8 +47,10 @@ public class LinkedList {
         Node previousNode = traverseToIndex(index - 1);
         Node newNode = new Node(value);
         Node nextNode = previousNode.getNext();
+        nextNode.setPrevious(newNode);
         previousNode.setNext(newNode);
         newNode.setNext(nextNode);
+        newNode.setPrevious(previousNode);
         length++;
     }
 
@@ -64,7 +68,9 @@ public class LinkedList {
     public void remove(int index) {
         length--;
         if (index == 0) {
-            head = head.getNext();
+            Node newHead = head.getNext();
+            newHead.setPrevious(null);
+            head = newHead;
             return;
         } else if (index >= length) {
             Node newTail = traverseToIndex(length - 2);
@@ -75,7 +81,9 @@ public class LinkedList {
 
         Node previousNode = traverseToIndex(index - 1);
         Node currentNode = previousNode.getNext();
-        previousNode.setNext(currentNode.getNext());
+        Node nextNode = currentNode.getNext();
+        previousNode.setNext(nextNode);
+        nextNode.setPrevious(previousNode);
     }
 
     public List<Integer> printList() {
