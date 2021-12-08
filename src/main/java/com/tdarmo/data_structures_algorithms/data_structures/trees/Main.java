@@ -13,5 +13,7 @@ public class Main {
         System.out.println(binarySearchTree);
         Node node = binarySearchTree.lookup(1);
         System.out.println(node.getValue());
+        binarySearchTree.remove(1);
+        System.out.println(binarySearchTree);
     }
 }

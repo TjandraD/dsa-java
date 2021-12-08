@@ -48,6 +48,54 @@ public class BinarySearchTree {
         return null;
     }
 
+    public void remove(int value) {
+        Node parentNode = this.root;
+
+        while (true) {
+            if (value < parentNode.getValue()) {
+                if (parentNode.getLeft().getValue() == value) {
+                    Node delete = parentNode.getLeft();
+                    if (delete.getRight() == null) {
+                        parentNode.setLeft(delete.getLeft());
+                    } else if (delete.getRight().getRight() != null) {
+                        Node rightChild = delete.getRight().getRight();
+                        rightChild.setRight(delete.getRight());
+                        rightChild.setLeft(delete.getLeft());
+                        parentNode.setLeft(rightChild);
+                    } else {
+                        Node replace = delete.getRight();
+                        replace.setLeft(delete.getLeft());
+                        parentNode.setLeft(replace);
+                    }
+
+                    break;
+                } else {
+                    parentNode = parentNode.getLeft();
+                }
+            } else {
+                if (parentNode.getRight().getValue() == value) {
+                    Node delete = parentNode.getRight();
+                    if (delete.getRight() == null) {
+                        parentNode.setRight(delete.getRight());
+                    } else if (delete.getRight().getRight() != null) {
+                        Node rightChild = delete.getRight().getRight();
+                        rightChild.setRight(delete.getRight());
+                        rightChild.setLeft(delete.getLeft());
+                        parentNode.setLeft(rightChild);
+                    } else {
+                        Node replace = delete.getRight();
+                        replace.setLeft(delete.getLeft());
+                        parentNode.setLeft(replace);
+                    }
+
+                    break;
+                } else {
+                    parentNode = parentNode.getRight();
+                }
+            }
+        }
+    }
+
     @Override
     public String toString() {
         return "BinarySearchTree {root: " + this.root + "}";
