@@ -32,6 +32,22 @@ public class BinarySearchTree {
         }
     }
 
+    public Node lookup(int value) {
+        Node currentNode = this.root;
+
+        while (currentNode != null) {
+            if (value < currentNode.getValue()) {
+                currentNode = currentNode.getLeft();
+            } else if (value > currentNode.getValue()) {
+                currentNode = currentNode.getRight();
+            } else {
+                return currentNode;
+            }
+        }
+
+        return null;
+    }
+
     @Override
     public String toString() {
         return "BinarySearchTree {root: " + this.root + "}";

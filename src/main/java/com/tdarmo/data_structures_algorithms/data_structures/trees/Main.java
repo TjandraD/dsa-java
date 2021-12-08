@@ -11,5 +11,7 @@ public class Main {
         binarySearchTree.insert(15);
         binarySearchTree.insert(1);
         System.out.println(binarySearchTree);
+        Node node = binarySearchTree.lookup(1);
+        System.out.println(node.getValue());
     }
 }
