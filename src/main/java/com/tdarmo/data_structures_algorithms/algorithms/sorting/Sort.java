@@ -42,6 +42,56 @@ public class Sort {
         return array;
     }
 
+    static int[] mergeSort(int[] array) {
+        int halfLength;
+        if (array.length == 1) {
+            return array;
+        } else if (array.length % 2 == 0) {
+            halfLength = array.length / 2;
+        } else {
+            halfLength = (array.length - 1) / 2;
+        }
+
+        
+        int[] left = new int[halfLength];
+        int[] right = new int[array.length - halfLength];
+        for (int i = 0; i < array.length; i++) {
+            if (i < left.length) {
+                left[i] = array[i];
+            } else {
+                right[i - left.length] = array[i];
+            }
+        }
+
+        return merge(mergeSort(left), mergeSort(right));
+    }
+
+    static int[] merge(int[] left, int[] right) {
+        int[] result = new int[left.length + right.length];
+        int leftIndex = 0;
+        int rightIndex = 0;
+
+        for (int i = 0; i < left.length + right.length; i++) {
+            if (leftIndex < left.length && rightIndex < right.length && left[leftIndex] < right[rightIndex]) {
+                result[i] = left[leftIndex];
+                leftIndex++;
+            } else if (leftIndex < left.length && rightIndex < right.length && right[rightIndex] < left[leftIndex]) {
+                result[i] = right[rightIndex];
+                rightIndex++;
+            } else {
+                if (leftIndex < left.length) {
+                    result[i] = left[leftIndex];
+                    leftIndex++;
+                } else if (rightIndex < right.length) {
+                    result[i] = right[rightIndex];
+                    rightIndex++;
+                }
+            }
+        }
+
+        return result;
+    }
+
     static private void shiftItems(int[] array, int index) {
         int toShift = array[index];
         index--;
