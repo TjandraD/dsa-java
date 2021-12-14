@@ -16,4 +16,21 @@ public class Sort {
 
         return array;
     }
+
+    static int[] selectionSort(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            int smallestItem = array[i];
+            for (int j = i + 1; j < array.length; j++) {
+                if (smallestItem > array[j]) {
+                    int temp = array[j];
+                    array[j] = smallestItem;
+                    smallestItem = temp;
+                }
+            }
+
+            array[i] = smallestItem;
+        }
+
+        return array;
+    }
 }

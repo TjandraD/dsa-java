@@ -7,7 +7,7 @@ import static com.tdarmo.data_structures_algorithms.algorithms.sorting.Sort.*;
 public class Main {
     public static void main(String[] args) {
         final int[] number = new int[]{99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0};
-        final int[] sortedNumber = bubbleSort(number);
+        final int[] sortedNumber = selectionSort(number);
         System.out.println(Arrays.toString(sortedNumber));
     }
 }
