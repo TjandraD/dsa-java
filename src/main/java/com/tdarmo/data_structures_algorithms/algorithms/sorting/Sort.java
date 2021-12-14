@@ -33,4 +33,22 @@ public class Sort {
 
         return array;
     }
+
+    static int[] insertionSort(int[] array) {
+        for (int i = 1; i < array.length; i++) {
+            if (array[i - 1] > array[i]) shiftItems(array, i);
+        }
+
+        return array;
+    }
+
+    static private void shiftItems(int[] array, int index) {
+        int toShift = array[index];
+        index--;
+        while (index != -1 && array[index] > toShift) {
+            array[index + 1] = array[index];
+            index--;
+        }
+        array[index + 1] = toShift;
+    }
 }
