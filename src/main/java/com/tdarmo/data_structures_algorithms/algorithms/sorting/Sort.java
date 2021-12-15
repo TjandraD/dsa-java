@@ -52,7 +52,7 @@ public class Sort {
             halfLength = (array.length - 1) / 2;
         }
 
-        
+
         int[] left = new int[halfLength];
         int[] right = new int[array.length - halfLength];
         for (int i = 0; i < array.length; i++) {
@@ -64,6 +64,41 @@ public class Sort {
         }
 
         return merge(mergeSort(left), mergeSort(right));
+    }
+
+    static int[] quickSort(int[] array, int left, int right) {
+        int partitionIndex;
+
+        if (left < right) {
+            partitionIndex = partition(array, right, left, right);
+
+            // Sort left and right
+            quickSort(array, left, partitionIndex - 1);
+            quickSort(array, partitionIndex + 1, right);
+        }
+
+        return array;
+    }
+
+    static int partition(int[] array, int pivot, int left, int right) {
+        int pivotValue = array[pivot];
+        int partitionIndex = left;
+
+        for (int i = left; i < right; i++) {
+            if (array[i] < pivotValue) {
+                swap(array, i, partitionIndex);
+                partitionIndex++;
+            }
+        }
+
+        swap(array, right, partitionIndex);
+        return partitionIndex;
+    }
+
+    static void swap(int[] array, int firstIndex, int secondIndex) {
+        int temp = array[firstIndex];
+        array[firstIndex] = array[secondIndex];
+        array[secondIndex] = temp;
     }
 
     static int[] merge(int[] left, int[] right) {
