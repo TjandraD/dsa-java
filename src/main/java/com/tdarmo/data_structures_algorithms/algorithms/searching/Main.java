@@ -1,5 +1,10 @@
 package com.tdarmo.data_structures_algorithms.algorithms.searching;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class Main {
     public static void main(String[] args) {
         BinarySearchTree binarySearchTree = new BinarySearchTree();
@@ -10,6 +15,12 @@ public class Main {
         binarySearchTree.insert(170);
         binarySearchTree.insert(15);
         binarySearchTree.insert(1);
-        System.out.println(binarySearchTree.breadthFirstSearch());
+
+        Node head = binarySearchTree.getRoot();
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(head);
+        List<Integer> list = new ArrayList<>();
+
+        System.out.println(binarySearchTree.breadthFirstSearchR(queue, list));
     }
 }

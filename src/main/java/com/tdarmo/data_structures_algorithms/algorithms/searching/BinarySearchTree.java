@@ -12,6 +12,10 @@ public class BinarySearchTree {
         this.root = null;
     }
 
+    public Node getRoot() {
+        return root;
+    }
+
     public void insert(int value) {
         Node newNode = new Node(value);
         if (this.root == null) {
@@ -118,6 +122,21 @@ public class BinarySearchTree {
         }
 
         return list;
+    }
+
+    public List<Integer> breadthFirstSearchR(Queue<Node> queue, List<Integer> list) {
+        if (queue.size() == 0) return list;
+
+        Node currentNode = queue.poll();
+        list.add(currentNode.getValue());
+        if (currentNode.getLeft() != null) {
+            queue.add(currentNode.getLeft());
+        }
+        if (currentNode.getRight() != null) {
+            queue.add(currentNode.getRight());
+        }
+
+        return this.breadthFirstSearchR(queue, list);
     }
 
     @Override
