@@ -139,6 +139,22 @@ public class BinarySearchTree {
         return this.breadthFirstSearchR(queue, list);
     }
 
+    public List<Integer> DFSInorder() {
+        return traverseInOrder(this.root, new ArrayList<>());
+    }
+
+    private List<Integer> traverseInOrder(Node node, List<Integer> list) {
+        if (node.getLeft() != null) {
+            traverseInOrder(node.getLeft(), list);
+        }
+        list.add(node.getValue());
+        if (node.getRight() != null) {
+            traverseInOrder(node.getRight(), list);
+        }
+
+        return list;
+    }
+
     @Override
     public String toString() {
         return "BinarySearchTree {root: " + this.root + "}";
