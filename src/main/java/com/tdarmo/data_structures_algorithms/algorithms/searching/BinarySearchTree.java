@@ -155,6 +155,22 @@ public class BinarySearchTree {
         return list;
     }
 
+    public List<Integer> DFSPreorder() {
+        return traversePreorder(this.root, new ArrayList<>());
+    }
+
+    private List<Integer> traversePreorder(Node node, List<Integer> list) {
+        list.add(node.getValue());
+        if (node.getLeft() != null) {
+            traversePreorder(node.getLeft(), list);
+        }
+        if (node.getRight() != null) {
+            traversePreorder(node.getRight(), list);
+        }
+
+        return list;
+    }
+
     @Override
     public String toString() {
         return "BinarySearchTree {root: " + this.root + "}";

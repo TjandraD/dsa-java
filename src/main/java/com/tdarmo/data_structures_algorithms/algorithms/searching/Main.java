@@ -10,6 +10,6 @@ public class Main {
         binarySearchTree.insert(170);
         binarySearchTree.insert(15);
         binarySearchTree.insert(1);
-        System.out.println(binarySearchTree.DFSInorder());
+        System.out.println(binarySearchTree.DFSPreorder());
     }
 }
