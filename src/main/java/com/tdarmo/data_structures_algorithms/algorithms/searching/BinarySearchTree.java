@@ -171,6 +171,22 @@ public class BinarySearchTree {
         return list;
     }
 
+    public List<Integer> DFSPostorder() {
+        return traversePostorder(this.root, new ArrayList<>());
+    }
+
+    private List<Integer> traversePostorder(Node node, List<Integer> list) {
+        if (node.getLeft() != null) {
+            traversePostorder(node.getLeft(), list);
+        }
+        if (node.getRight() != null) {
+            traversePostorder(node.getRight(), list);
+        }
+        list.add(node.getValue());
+
+        return list;
+    }
+
     @Override
     public String toString() {
         return "BinarySearchTree {root: " + this.root + "}";
