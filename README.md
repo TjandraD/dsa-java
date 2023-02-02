@@ -8,6 +8,8 @@ This project will be written in Java, and I will implement every code from the t
 
 [Master the Coding Interview: Data Structures + Algorithms](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms/)
 
+[Course Mind Map](https://coggle.it/diagram/W5u8QkZs6r4sZM3J/t/master-the-interview)
+
 ## Project Structure
 
 | Main Topic                   | Location                                                                                                                            | Docs                                                                                           |
